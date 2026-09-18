@@ -14,9 +14,8 @@
     --panel-2:#262420;
     --line:#37342e;
     --paper:#f3efe4;
-    --accent:#e8879f;
+    --accent:#c9a227;
     --muted:#9a968a;
-    --good:#7fae8e;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -26,13 +25,10 @@
     font-family:'Libre Franklin', sans-serif;
     min-height:100vh;
   }
-  .app{
-    display:flex;
-    min-height:100vh;
-  }
+  .app{ display:flex; min-height:100vh; }
   .controls{
-    width:400px;
-    flex:0 0 400px;
+    width:420px;
+    flex:0 0 420px;
     background:var(--panel);
     padding:28px 26px 60px;
     overflow-y:auto;
@@ -47,12 +43,6 @@
     padding:40px;
     position:relative;
   }
-  .brand{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:6px;
-  }
   .brand h1{
     font-family:'Space Grotesk', sans-serif;
     font-size:20px;
@@ -60,24 +50,13 @@
     margin:0;
     letter-spacing:-0.01em;
   }
-  .brand span{
-    font-size:12px;
-    color:var(--muted);
-  }
-  .sub{
-    color:var(--muted);
-    font-size:13px;
-    margin:0 0 28px;
-    line-height:1.5;
-  }
+  .sub{ color:var(--muted); font-size:13px; margin:0 0 24px; line-height:1.5; }
   .group{
-    margin-bottom:26px;
-    padding-bottom:22px;
+    margin-bottom:22px;
+    padding-bottom:20px;
     border-bottom:1px solid var(--line);
   }
-  .group:last-of-type{
-    border-bottom:none;
-  }
+  .group:last-of-type{ border-bottom:none; }
   .group h2{
     font-family:'Space Grotesk', sans-serif;
     font-size:12px;
@@ -86,16 +65,25 @@
     letter-spacing:0.08em;
     color:var(--accent);
     margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
   }
-  label{
-    display:block;
-    font-size:12px;
+  .group h2 button{
+    text-transform:none;
+    letter-spacing:0;
+    font-size:11px;
+    background:none;
+    border:1px solid var(--line);
     color:var(--muted);
-    margin:0 0 6px;
+    border-radius:5px;
+    padding:3px 8px;
+    cursor:pointer;
+    font-family:'Libre Franklin', sans-serif;
   }
-  .field{
-    margin-bottom:14px;
-  }
+  .group h2 button:hover{ color:var(--paper); border-color:var(--accent); }
+  label{ display:block; font-size:12px; color:var(--muted); margin:0 0 6px; }
+  .field{ margin-bottom:14px; }
   input[type="text"], textarea, select{
     width:100%;
     background:var(--panel-2);
@@ -108,182 +96,95 @@
     resize:vertical;
   }
   textarea{ min-height:56px; line-height:1.4; }
-  input[type="text"]:focus, textarea:focus, select:focus{
-    outline:none;
-    border-color:var(--accent);
-  }
-  .row{
-    display:flex;
-    gap:10px;
-  }
+  input[type="text"]:focus, textarea:focus, select:focus{ outline:none; border-color:var(--accent); }
+  .row{ display:flex; gap:10px; }
   .row > *{ flex:1; }
-  .color-row{
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
+  .color-row{ display:flex; align-items:center; gap:8px; }
   .color-row input[type="color"]{
-    width:38px;
-    height:34px;
-    padding:0;
-    border:1px solid var(--line);
-    border-radius:6px;
-    background:none;
-    cursor:pointer;
-    flex:0 0 auto;
+    width:38px; height:34px; padding:0; border:1px solid var(--line);
+    border-radius:6px; background:none; cursor:pointer; flex:0 0 auto;
   }
   .color-row input[type="text"]{
-    font-family:'Space Grotesk', monospace;
-    text-transform:uppercase;
-    letter-spacing:0.02em;
+    font-family:'Space Grotesk', monospace; text-transform:uppercase; letter-spacing:0.02em;
   }
-  .presets{
-    display:flex;
-    gap:6px;
-    margin-top:8px;
-    flex-wrap:wrap;
-  }
+  .presets{ display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
   .preset-swatch{
-    width:22px;
-    height:22px;
-    border-radius:50%;
-    border:1.5px solid rgba(255,255,255,0.25);
-    cursor:pointer;
-    padding:0;
+    width:22px; height:22px; border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.25); cursor:pointer; padding:0;
   }
   .upload-slot{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:10px;
-    background:var(--panel-2);
-    border:1px dashed var(--line);
-    border-radius:8px;
-    padding:10px;
+    display:flex; align-items:center; gap:10px; margin-bottom:8px;
+    background:var(--panel-2); border:1px dashed var(--line); border-radius:8px; padding:10px;
   }
   .upload-slot .thumb{
-    width:44px;
-    height:44px;
-    border-radius:5px;
-    background:#000 center/cover no-repeat;
-    flex:0 0 auto;
-    border:1px solid var(--line);
+    width:44px; height:44px; border-radius:5px; background:#000 center/cover no-repeat;
+    flex:0 0 auto; border:1px solid var(--line);
   }
-  .upload-slot .info{
-    flex:1;
-    font-size:12.5px;
-    color:var(--muted);
-  }
-  .upload-slot .info b{
-    color:var(--paper);
-    font-weight:500;
-    display:block;
-    font-size:12.5px;
-  }
-  .upload-slot input[type="file"]{
-    display:none;
-  }
+  .upload-slot .info{ flex:1; font-size:12.5px; color:var(--muted); }
+  .upload-slot .info b{ color:var(--paper); font-weight:500; display:block; font-size:12.5px; }
+  .upload-slot input[type="file"]{ display:none; }
   .btn-tiny{
-    background:none;
-    border:1px solid var(--line);
-    color:var(--paper);
-    border-radius:6px;
-    padding:6px 10px;
-    font-size:12px;
-    cursor:pointer;
-    font-family:'Libre Franklin', sans-serif;
-    flex:0 0 auto;
+    background:none; border:1px solid var(--line); color:var(--paper);
+    border-radius:6px; padding:6px 10px; font-size:12px; cursor:pointer;
+    font-family:'Libre Franklin', sans-serif; flex:0 0 auto;
   }
   .btn-tiny:hover{ border-color:var(--accent); color:var(--accent); }
-  .layout-choices{
-    display:flex;
-    gap:8px;
-  }
-  .layout-choices button{
-    flex:1;
+  .slot-adjust{
     background:var(--panel-2);
     border:1px solid var(--line);
-    color:var(--muted);
-    border-radius:6px;
-    padding:9px 6px;
-    font-size:12px;
-    cursor:pointer;
-    font-family:'Libre Franklin', sans-serif;
-  }
-  .layout-choices button.active{
-    border-color:var(--accent);
-    color:var(--paper);
-    background:rgba(232,135,159,0.12);
-  }
-  .size-choices{
-    display:flex;
-    gap:8px;
-  }
-  .size-choices button{
-    flex:1;
-    background:var(--panel-2);
-    border:1px solid var(--line);
-    color:var(--muted);
-    border-radius:6px;
-    padding:9px 4px;
-    font-size:11.5px;
-    cursor:pointer;
-    font-family:'Libre Franklin', sans-serif;
-    line-height:1.3;
-  }
-  .size-choices button.active{
-    border-color:var(--accent);
-    color:var(--paper);
-    background:rgba(232,135,159,0.12);
-  }
-  select{
-    appearance:none;
-    -webkit-appearance:none;
-  }
-  .canvas-wrap{
-    position:relative;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-    border-radius:6px;
-    overflow:hidden;
-    background:#000;
-  }
-  canvas{
-    display:block;
-    max-height:88vh;
-    max-width:100%;
-    height:auto;
-    width:auto;
-  }
-  .download-bar{
-    position:sticky;
-    bottom:0;
-    background:var(--panel);
-    margin-top:8px;
-    padding-top:4px;
-  }
-  .btn-main{
-    width:100%;
-    background:var(--accent);
-    color:#221417;
-    border:none;
     border-radius:8px;
-    padding:13px 14px;
-    font-size:14px;
-    font-weight:700;
-    cursor:pointer;
-    font-family:'Space Grotesk', sans-serif;
-    letter-spacing:0.01em;
+    padding:10px 12px 12px;
+    margin-bottom:14px;
+  }
+  .slot-adjust .slot-title{
+    font-size:12px;
+    color:var(--paper);
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .slider-row{
+    display:grid;
+    grid-template-columns:70px 1fr 40px;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .slider-row label{ margin:0; font-size:11.5px; color:var(--muted); }
+  .slider-row span{ font-size:11.5px; color:var(--muted); text-align:right; }
+  input[type="range"]{
+    width:100%;
+    accent-color:var(--accent);
+  }
+  .layout-choices{ display:flex; gap:8px; }
+  .layout-choices button{
+    flex:1; background:var(--panel-2); border:1px solid var(--line); color:var(--muted);
+    border-radius:6px; padding:9px 6px; font-size:12px; cursor:pointer;
+    font-family:'Libre Franklin', sans-serif;
+  }
+  .layout-choices button.active{ border-color:var(--accent); color:var(--paper); background:rgba(201,162,39,0.12); }
+  .size-choices{ display:flex; gap:8px; }
+  .size-choices button{
+    flex:1; background:var(--panel-2); border:1px solid var(--line); color:var(--muted);
+    border-radius:6px; padding:9px 4px; font-size:11.5px; cursor:pointer;
+    font-family:'Libre Franklin', sans-serif; line-height:1.3;
+  }
+  .size-choices button.active{ border-color:var(--accent); color:var(--paper); background:rgba(201,162,39,0.12); }
+  select{ appearance:none; -webkit-appearance:none; }
+  .canvas-wrap{
+    position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    border-radius:6px; overflow:hidden; background:#000;
+  }
+  canvas{ display:block; max-height:88vh; max-width:100%; height:auto; width:auto; }
+  .download-bar{ position:sticky; bottom:0; background:var(--panel); margin-top:8px; padding-top:4px; }
+  .btn-main{
+    width:100%; background:var(--accent); color:#221708; border:none;
+    border-radius:8px; padding:13px 14px; font-size:14px; font-weight:700;
+    cursor:pointer; font-family:'Space Grotesk', sans-serif; letter-spacing:0.01em;
   }
   .btn-main:hover{ filter:brightness(1.08); }
   .zoom-hint{
-    position:absolute;
-    top:14px;
-    right:14px;
-    font-size:11px;
-    color:rgba(255,255,255,0.55);
-    background:rgba(0,0,0,0.4);
-    padding:4px 9px;
-    border-radius:20px;
+    position:absolute; top:14px; right:14px; font-size:11px; color:rgba(255,255,255,0.55);
+    background:rgba(0,0,0,0.4); padding:4px 9px; border-radius:20px;
   }
   ::-webkit-scrollbar{ width:8px; }
   ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
@@ -294,7 +195,7 @@
 <div class="app">
   <div class="controls">
     <div class="brand"><h1>Story &amp; Post Maker</h1></div>
-    <p class="sub">Upload photos, write your text, pick colors by hex, download in the right size for stories or feed posts.</p>
+    <p class="sub">Upload photos, write your text, size and position everything, then download at the right dimensions.</p>
 
     <div class="group">
       <h2>Canvas size</h2>
@@ -306,12 +207,28 @@
     </div>
 
     <div class="group">
-      <h2>Photos</h2>
+      <h2>Photos<button id="resetImgBtn">Reset positions</button></h2>
       <div class="layout-choices">
         <button data-layout="single" class="active">1 photo</button>
         <button data-layout="triptych">3 photos</button>
       </div>
       <div id="uploadSlots" style="margin-top:14px;"></div>
+
+      <div class="slot-adjust">
+        <div class="slot-title">Image block position</div>
+        <div class="slider-row">
+          <label>Top</label>
+          <input type="range" id="imgTop" min="0" max="1920" step="2">
+          <span id="imgTopVal"></span>
+        </div>
+        <div class="slider-row">
+          <label>Height</label>
+          <input type="range" id="imgHeight" min="60" max="1400" step="2">
+          <span id="imgHeightVal"></span>
+        </div>
+      </div>
+
+      <div id="slotAdjustments"></div>
     </div>
 
     <div class="group">
@@ -326,6 +243,11 @@
           <input type="text" id="topRight" value="LIVE NOW">
         </div>
       </div>
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="topFontSize" min="12" max="60" step="1">
+        <span id="topFontSizeVal"></span>
+      </div>
     </div>
 
     <div class="group">
@@ -334,13 +256,23 @@
         <label>Big title</label>
         <textarea id="headline">New Add-Ons</textarea>
       </div>
-      <div class="field">
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="headlineFontSize" min="30" max="220" step="2">
+        <span id="headlineFontSizeVal"></span>
+      </div>
+      <div class="field" style="margin-top:10px;">
         <label>Lines under title (one per line)</label>
         <textarea id="subhead">LT1K Contrast
 Tape Slim Tank
 Top</textarea>
       </div>
-      <div class="field">
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="subheadFontSize" min="14" max="70" step="1">
+        <span id="subheadFontSizeVal"></span>
+      </div>
+      <div class="field" style="margin-top:10px;">
         <label>Headline font</label>
         <select id="headlineFont">
           <option value="Archivo Black">Archivo Black — heavy grotesk</option>
@@ -357,15 +289,30 @@ Top</textarea>
         <label>Small label</label>
         <input type="text" id="bottomLabel" value="SS'26 EDT-2">
       </div>
-      <div class="field">
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="bottomLabelFontSize" min="12" max="60" step="1">
+        <span id="bottomLabelFontSizeVal"></span>
+      </div>
+      <div class="field" style="margin-top:10px;">
         <label>Bottom heading</label>
         <input type="text" id="bottomHeading" value="Reconsidered for season">
       </div>
-      <div class="field">
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="bottomHeadingFontSize" min="20" max="110" step="1">
+        <span id="bottomHeadingFontSizeVal"></span>
+      </div>
+      <div class="field" style="margin-top:10px;">
         <label>Description</label>
         <textarea id="bottomDesc">Essentials in effortless fits and everyday favourites made for your rotation and plans.</textarea>
       </div>
-      <div class="field">
+      <div class="slider-row">
+        <label>Text size</label>
+        <input type="range" id="descFontSize" min="12" max="60" step="1">
+        <span id="descFontSizeVal"></span>
+      </div>
+      <div class="field" style="margin-top:10px;">
         <label>Body font</label>
         <select id="bodyFont">
           <option value="Libre Franklin" selected>Libre Franklin</option>
@@ -380,36 +327,36 @@ Top</textarea>
       <div class="field">
         <label>Background</label>
         <div class="color-row">
-          <input type="color" id="colorBgPicker" value="#f3efe4">
-          <input type="text" id="colorBg" value="#F3EFE4">
+          <input type="color" id="colorBgPicker" value="#faf6ec">
+          <input type="text" id="colorBg" value="#FAF6EC">
         </div>
       </div>
       <div class="field">
         <label>Headline color</label>
         <div class="color-row">
-          <input type="color" id="colorHeadlinePicker" value="#e8879f">
-          <input type="text" id="colorHeadline" value="#E8879F">
+          <input type="color" id="colorHeadlinePicker" value="#2b2013">
+          <input type="text" id="colorHeadline" value="#2B2013">
         </div>
       </div>
       <div class="field">
         <label>Top bar / labels color</label>
         <div class="color-row">
-          <input type="color" id="colorLabelPicker" value="#e8879f">
-          <input type="text" id="colorLabel" value="#E8879F">
+          <input type="color" id="colorLabelPicker" value="#8b6b1f">
+          <input type="text" id="colorLabel" value="#8B6B1F">
         </div>
       </div>
       <div class="field">
         <label>Bottom heading color</label>
         <div class="color-row">
-          <input type="color" id="colorBottomHeadPicker" value="#e8879f">
-          <input type="text" id="colorBottomHead" value="#E8879F">
+          <input type="color" id="colorBottomHeadPicker" value="#2b2013">
+          <input type="text" id="colorBottomHead" value="#2B2013">
         </div>
       </div>
       <div class="field">
         <label>Description text color</label>
         <div class="color-row">
-          <input type="color" id="colorDescPicker" value="#8a8578">
-          <input type="text" id="colorDesc" value="#8A8578">
+          <input type="color" id="colorDescPicker" value="#5c4a32">
+          <input type="text" id="colorDesc" value="#5C4A32">
         </div>
       </div>
       <div class="presets" id="palettePresets"></div>
@@ -442,6 +389,60 @@ let currentSize = 'story';
 let currentLayout = 'single';
 let images = { single: null, left: null, center: null, right: null };
 
+let imgAdjust = {
+  single: {zoom:1, panX:0, panY:0},
+  left:   {zoom:1, panX:0, panY:0},
+  center: {zoom:1, panX:0, panY:0},
+  right:  {zoom:1, panX:0, panY:0}
+};
+
+let layout = {};
+
+function defaultLayoutFor(size){
+  const {w,h} = SIZES[size];
+  return {
+    topFontSize: Math.round(h*0.017),
+    headlineFontSize: Math.round(h*0.062),
+    subheadFontSize: Math.round(h*0.021),
+    bottomLabelFontSize: Math.round(h*0.019),
+    bottomHeadingFontSize: Math.round(h*0.028),
+    descFontSize: Math.round(h*0.0175),
+    imgTop: Math.round(h*0.36),
+    imgHeight: Math.round(h*(size==='square'?0.42:0.38))
+  };
+}
+
+function resetLayoutDefaults(){
+  layout = defaultLayoutFor(currentSize);
+  syncSlidersFromLayout();
+}
+
+function syncSlidersFromLayout(){
+  const {h} = SIZES[currentSize];
+  setSlider('topFontSize', layout.topFontSize, 8, Math.round(h*0.05));
+  setSlider('headlineFontSize', layout.headlineFontSize, 8, Math.round(h*0.16));
+  setSlider('subheadFontSize', layout.subheadFontSize, 8, Math.round(h*0.06));
+  setSlider('bottomLabelFontSize', layout.bottomLabelFontSize, 8, Math.round(h*0.05));
+  setSlider('bottomHeadingFontSize', layout.bottomHeadingFontSize, 8, Math.round(h*0.09));
+  setSlider('descFontSize', layout.descFontSize, 8, Math.round(h*0.05));
+  setSlider('imgTop', layout.imgTop, 0, h, h);
+  setSlider('imgHeight', layout.imgHeight, 40, h, h);
+}
+
+function setSlider(id, value, minOverride, maxOverride){
+  const el = document.getElementById(id);
+  if(minOverride !== undefined) el.min = minOverride;
+  if(maxOverride !== undefined) el.max = maxOverride;
+  el.value = value;
+  updateSliderLabel(id);
+}
+
+function updateSliderLabel(id){
+  const el = document.getElementById(id);
+  const out = document.getElementById(id + 'Val');
+  if(out) out.textContent = el.value + 'px';
+}
+
 const state = {};
 function readState(){
   state.topLeft = document.getElementById('topLeft').value;
@@ -453,11 +454,20 @@ function readState(){
   state.bottomDesc = document.getElementById('bottomDesc').value;
   state.headlineFont = document.getElementById('headlineFont').value;
   state.bodyFont = document.getElementById('bodyFont').value;
-  state.colorBg = document.getElementById('colorBg').value || '#F3EFE4';
-  state.colorHeadline = document.getElementById('colorHeadline').value || '#E8879F';
-  state.colorLabel = document.getElementById('colorLabel').value || '#E8879F';
-  state.colorBottomHead = document.getElementById('colorBottomHead').value || '#E8879F';
-  state.colorDesc = document.getElementById('colorDesc').value || '#8A8578';
+  state.colorBg = document.getElementById('colorBg').value || '#FAF6EC';
+  state.colorHeadline = document.getElementById('colorHeadline').value || '#2B2013';
+  state.colorLabel = document.getElementById('colorLabel').value || '#8B6B1F';
+  state.colorBottomHead = document.getElementById('colorBottomHead').value || '#2B2013';
+  state.colorDesc = document.getElementById('colorDesc').value || '#5C4A32';
+
+  layout.topFontSize = parseInt(document.getElementById('topFontSize').value, 10);
+  layout.headlineFontSize = parseInt(document.getElementById('headlineFontSize').value, 10);
+  layout.subheadFontSize = parseInt(document.getElementById('subheadFontSize').value, 10);
+  layout.bottomLabelFontSize = parseInt(document.getElementById('bottomLabelFontSize').value, 10);
+  layout.bottomHeadingFontSize = parseInt(document.getElementById('bottomHeadingFontSize').value, 10);
+  layout.descFontSize = parseInt(document.getElementById('descFontSize').value, 10);
+  layout.imgTop = parseInt(document.getElementById('imgTop').value, 10);
+  layout.imgHeight = parseInt(document.getElementById('imgHeight').value, 10);
 }
 
 function wrapText(text, maxWidth, font){
@@ -494,21 +504,37 @@ function drawMultiline(rawText, x, y, maxWidth, font, lineHeight, align){
   return cy;
 }
 
-function drawCoverImage(img, x, y, w, h){
+function drawCoverImageAdjusted(img, x, y, w, h, adjust){
+  const zoom = Math.max(1, adjust.zoom || 1);
+  const panX = Math.max(-1, Math.min(1, adjust.panX || 0));
+  const panY = Math.max(-1, Math.min(1, adjust.panY || 0));
+
   const ir = img.width / img.height;
   const tr = w / h;
-  let sx, sy, sw, sh;
+  let sw0, sh0, sx0, sy0;
   if(ir > tr){
-    sh = img.height;
-    sw = sh * tr;
-    sx = (img.width - sw) / 2;
-    sy = 0;
+    sh0 = img.height;
+    sw0 = sh0 * tr;
+    sx0 = (img.width - sw0) / 2;
+    sy0 = 0;
   } else {
-    sw = img.width;
-    sh = sw / tr;
-    sx = 0;
-    sy = (img.height - sh) / 2;
+    sw0 = img.width;
+    sh0 = sw0 / tr;
+    sx0 = 0;
+    sy0 = (img.height - sh0) / 2;
   }
+
+  const cx = sx0 + sw0/2;
+  const cy = sy0 + sh0/2;
+  const sw = sw0 / zoom;
+  const sh = sh0 / zoom;
+  const maxPanX = Math.max(0, (img.width - sw)/2);
+  const maxPanY = Math.max(0, (img.height - sh)/2);
+  let sx = cx - sw/2 + panX * maxPanX;
+  let sy = cy - sh/2 + panY * maxPanY;
+  sx = Math.max(0, Math.min(img.width - sw, sx));
+  sy = Math.max(0, Math.min(img.height - sh, sy));
+
   ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
 }
 
@@ -540,7 +566,7 @@ function render(){
 
   ctx.fillStyle = state.colorLabel;
   ctx.textBaseline = 'alphabetic';
-  const topFont = '600 ' + Math.round(h*0.017) + 'px "' + state.bodyFont + '", sans-serif';
+  const topFont = '600 ' + layout.topFontSize + 'px "' + state.bodyFont + '", sans-serif';
   ctx.font = topFont;
   ctx.textAlign = 'left';
   ctx.fillText(state.topLeft, marginX, h*0.045);
@@ -548,27 +574,27 @@ function render(){
   ctx.fillText(state.topRight, w - marginX, h*0.045);
 
   let cy = h * 0.10;
-  const headlineFontSize = Math.round(h * 0.062);
+  const headlineFontSize = layout.headlineFontSize;
   const headlineFont = (state.headlineFont === 'Anton' ? '400 ' : '700 ') + headlineFontSize + 'px "' + state.headlineFont + '", sans-serif';
   ctx.fillStyle = state.colorHeadline;
   ctx.textAlign = 'left';
   cy = drawMultiline(state.headline, marginX, cy + headlineFontSize*0.85, w - marginX*2, headlineFont, headlineFontSize*1.02, 'left');
 
   cy += h*0.012;
-  const subFontSize = Math.round(h*0.021);
+  const subFontSize = layout.subheadFontSize;
   const subFont = '600 ' + subFontSize + 'px "' + state.bodyFont + '", sans-serif';
   ctx.fillStyle = state.colorLabel;
-  cy = drawMultiline(state.subhead, marginX, cy + subFontSize*0.8, w - marginX*2, subFont, subFontSize*1.25, 'left');
+  drawMultiline(state.subhead, marginX, cy + subFontSize*0.8, w - marginX*2, subFont, subFontSize*1.25, 'left');
 
-  const imgTop = cy + h*0.025;
-  const imgHeight = h * (currentSize === 'square' ? 0.42 : 0.38);
+  const imgTop = layout.imgTop;
+  const imgHeight = layout.imgHeight;
   const imgBottom = imgTop + imgHeight;
 
   if(currentLayout === 'single'){
     const ix = marginX;
     const iw = w - marginX*2;
     if(images.single){
-      drawCoverImage(images.single, ix, imgTop, iw, imgHeight);
+      drawCoverImageAdjusted(images.single, ix, imgTop, iw, imgHeight, imgAdjust.single);
     } else {
       placeholderBox(ix, imgTop, iw, imgHeight, 'Upload a photo');
     }
@@ -579,26 +605,26 @@ function render(){
     const leftX = marginX;
     const centerX = leftX + sideW + gap;
     const rightX = centerX + centerW + gap;
-    if(images.left){ drawCoverImage(images.left, leftX, imgTop, sideW, imgHeight); } else { placeholderBox(leftX, imgTop, sideW, imgHeight, 'Left'); }
-    if(images.center){ drawCoverImage(images.center, centerX, imgTop, centerW, imgHeight); } else { placeholderBox(centerX, imgTop, centerW, imgHeight, 'Center'); }
-    if(images.right){ drawCoverImage(images.right, rightX, imgTop, sideW, imgHeight); } else { placeholderBox(rightX, imgTop, sideW, imgHeight, 'Right'); }
+    if(images.left){ drawCoverImageAdjusted(images.left, leftX, imgTop, sideW, imgHeight, imgAdjust.left); } else { placeholderBox(leftX, imgTop, sideW, imgHeight, 'Left'); }
+    if(images.center){ drawCoverImageAdjusted(images.center, centerX, imgTop, centerW, imgHeight, imgAdjust.center); } else { placeholderBox(centerX, imgTop, centerW, imgHeight, 'Center'); }
+    if(images.right){ drawCoverImageAdjusted(images.right, rightX, imgTop, sideW, imgHeight, imgAdjust.right); } else { placeholderBox(rightX, imgTop, sideW, imgHeight, 'Right'); }
   }
 
   let by = imgBottom + h*0.06;
-  const labelFontSize = Math.round(h*0.019);
+  const labelFontSize = layout.bottomLabelFontSize;
   ctx.font = '700 ' + labelFontSize + 'px "' + state.bodyFont + '", sans-serif';
   ctx.fillStyle = state.colorBottomHead;
   ctx.textAlign = 'left';
   ctx.fillText(state.bottomLabel, marginX, by);
 
   by += labelFontSize*1.9;
-  const bHeadSize = Math.round(h*0.028);
+  const bHeadSize = layout.bottomHeadingFontSize;
   ctx.font = '700 ' + bHeadSize + 'px "' + state.headlineFont + '", sans-serif';
   ctx.fillStyle = state.colorBottomHead;
   by = drawMultiline(state.bottomHeading, marginX, by + bHeadSize*0.3, w - marginX*2, ctx.font, bHeadSize*1.15, 'left');
 
   by += h*0.012;
-  const descSize = Math.round(h*0.0175);
+  const descSize = layout.descFontSize;
   ctx.font = '400 ' + descSize + 'px "' + state.bodyFont + '", sans-serif';
   ctx.fillStyle = state.colorDesc;
   drawMultiline(state.bottomDesc, marginX, by + descSize*0.8, w - marginX*2, ctx.font, descSize*1.45, 'left');
@@ -642,6 +668,7 @@ function buildUploadSlots(){
         img.onload = () => {
           images[slot.key] = img;
           buildUploadSlots();
+          buildSlotAdjustments();
           render();
         };
         img.src = ev.target.result;
@@ -657,11 +684,45 @@ function buildUploadSlots(){
   }
 }
 
+function buildSlotAdjustments(){
+  const container = document.getElementById('slotAdjustments');
+  container.innerHTML = '';
+  const slots = currentLayout === 'single' ? [{key:'single', label:'Main photo'}]
+    : [{key:'left', label:'Left photo'}, {key:'center', label:'Center photo'}, {key:'right', label:'Right photo'}];
+
+  for(const slot of slots){
+    if(!images[slot.key]) continue;
+    const box = document.createElement('div');
+    box.className = 'slot-adjust';
+    const a = imgAdjust[slot.key];
+    box.innerHTML =
+      '<div class="slot-title">' + slot.label + ' — crop and position</div>' +
+      '<div class="slider-row"><label>Zoom</label><input type="range" min="1" max="2.5" step="0.05" value="' + a.zoom + '" data-key="' + slot.key + '" data-prop="zoom"><span data-out="' + slot.key + '-zoom">' + a.zoom.toFixed(2) + 'x</span></div>' +
+      '<div class="slider-row"><label>Move sideways</label><input type="range" min="-100" max="100" step="1" value="' + Math.round(a.panX*100) + '" data-key="' + slot.key + '" data-prop="panX"><span data-out="' + slot.key + '-panX">' + Math.round(a.panX*100) + '</span></div>' +
+      '<div class="slider-row"><label>Move up/down</label><input type="range" min="-100" max="100" step="1" value="' + Math.round(a.panY*100) + '" data-key="' + slot.key + '" data-prop="panY"><span data-out="' + slot.key + '-panY">' + Math.round(a.panY*100) + '</span></div>';
+    container.appendChild(box);
+  }
+
+  container.querySelectorAll('input[type="range"]').forEach(input => {
+    input.addEventListener('input', () => {
+      const key = input.dataset.key;
+      const prop = input.dataset.prop;
+      let val = parseFloat(input.value);
+      if(prop !== 'zoom') val = val / 100;
+      imgAdjust[key][prop] = val;
+      const out = container.querySelector('[data-out="' + key + '-' + prop + '"]');
+      if(out) out.textContent = prop === 'zoom' ? val.toFixed(2) + 'x' : Math.round(val*100);
+      render();
+    });
+  });
+}
+
 document.querySelectorAll('.size-choices button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.size-choices button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentSize = btn.dataset.size;
+    resetLayoutDefaults();
     render();
   });
 });
@@ -672,6 +733,25 @@ document.querySelectorAll('.layout-choices button').forEach(btn => {
     btn.classList.add('active');
     currentLayout = btn.dataset.layout;
     buildUploadSlots();
+    buildSlotAdjustments();
+    render();
+  });
+});
+
+document.getElementById('resetImgBtn').addEventListener('click', () => {
+  const d = defaultLayoutFor(currentSize);
+  layout.imgTop = d.imgTop;
+  layout.imgHeight = d.imgHeight;
+  setSlider('imgTop', layout.imgTop, 0, SIZES[currentSize].h);
+  setSlider('imgHeight', layout.imgHeight, 40, SIZES[currentSize].h);
+  ['single','left','center','right'].forEach(k => { imgAdjust[k] = {zoom:1, panX:0, panY:0}; });
+  buildSlotAdjustments();
+  render();
+});
+
+['topFontSize','headlineFontSize','subheadFontSize','bottomLabelFontSize','bottomHeadingFontSize','descFontSize','imgTop','imgHeight'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    updateSliderLabel(id);
     render();
   });
 });
@@ -706,8 +786,8 @@ document.getElementById('headlineFont').addEventListener('change', render);
 document.getElementById('bodyFont').addEventListener('change', render);
 
 const paletteList = [
-  '#E8879F','#D4537E','#1D2C4D','#7FAE8E','#BA7517',
-  '#993C1D','#639922','#378ADD','#F09595','#2C2C2A'
+  '#2B2013','#5C4A32','#8B6B1F','#C9A227','#FAF6EC',
+  '#F0E9D8','#7A2E2E','#4A6B4A','#EEE9DD','#000000'
 ];
 const presetsContainer = document.getElementById('palettePresets');
 paletteList.forEach(hex => {
@@ -718,8 +798,6 @@ paletteList.forEach(hex => {
   sw.addEventListener('click', () => {
     document.getElementById('colorHeadline').value = hex;
     document.getElementById('colorHeadlinePicker').value = hex;
-    document.getElementById('colorLabel').value = hex;
-    document.getElementById('colorLabelPicker').value = hex;
     document.getElementById('colorBottomHead').value = hex;
     document.getElementById('colorBottomHeadPicker').value = hex;
     render();
@@ -741,7 +819,9 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
   }, 'image/png');
 });
 
+resetLayoutDefaults();
 buildUploadSlots();
+buildSlotAdjustments();
 renderSafe();
 </script>
 
